@@ -1,0 +1,831 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: #EFEEEA;
+    color: #1e1e2a;
+    line-height: 1.5;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Кружочки с градиентом — 2 цвета */
+/* Кружок 1 — розово-коричневый градиент */
+.circle-1 {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #5a8ef7, #7591ee);
+    top: -10%;
+    left: -100px;
+    filter: blur(70px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Кружок 2 — сине-лавандовый градиент */
+.circle-2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #5a8ef7, #7591ee);
+    bottom: 15%;
+    right: -100px;
+    filter: blur(70px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Кружок 3 — маленький, для акцента */
+.circle-3 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle,  #5a8ef7, #7591ee);
+    top: 40%;
+    right: 20%;
+    filter: blur(50px);
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.circle-4 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle,#5a8ef7, #7591ee);
+    bottom: 30%;
+    left: 20px;
+    filter: blur(65px);
+    opacity: 0.45;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Кружок 5 — маленький сверху справа */
+.circle-5 {
+    position: absolute;
+    width: 320px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle,  #5a8ef7, #7591ee);
+    top: 3%;
+    right: 40%;
+    filter: blur(35px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Всё остальное поверх кружочков */
+.container, header, main, footer {
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Остальные ваши стили (карточки, кнопки и т.д.) идут ниже */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Шапка — вровень с карточками, без фона */
+.page-header {
+    padding: 3rem 0 2rem 0;
+    background: transparent;
+}
+
+.header-content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-center {
+    text-align: center;
+}
+
+.header-center h1 {
+    font-size: 1.8rem;
+    color: #2D2F36;
+    margin-bottom: 0.3rem;
+}
+
+.header-center p {
+    color: #7A7E89;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.header-right {
+    text-align: right;
+}
+
+/* Кнопка "О проекте" — градиентная */
+.about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: linear-gradient(135deg, #9dbaf5, #cdd8fa);
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    padding: 0.45rem 1.1rem;
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(74, 111, 165, 0.3);
+    background: linear-gradient(135deg,  #5a8ef7, #7591ee);
+}
+/* Карточки участников */
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.card {
+    background: rgba(217, 217, 217, 0.9);
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    width: 220px;
+    flex-shrink: 0;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 2px solid #fff;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0 0.25rem;
+    color: #2c2c3a;
+}
+
+.category {
+    font-size: 0.8rem;
+    background: rgba(0,0,0,0.1);
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 2rem;
+    color: #4a4a5a;
+}
+
+.short-bio {
+    font-size: 0.8rem;
+    color: #5a5a6e;
+    margin: 0.5rem 0;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: #2c2c3a;
+    color: #fff;
+}
+
+.btn:hover {
+    transform: scale(0.95);
+}
+
+/* Индивидуальные цвета при наведении */
+.card-denis:hover {
+    background: #BDC4B1;
+}
+.card-denis:hover .btn {
+    background: #BDC4B1;
+}
+
+.card-nastya:hover {
+    background: #9F7E7E;
+}
+.card-nastya:hover .btn {
+    background: #9F7E7E;
+}
+
+.card-nikita:hover {
+    background: #849CBD;
+}
+.card-nikita:hover .btn {
+    background: #849CBD;
+}
+
+.card-liza:hover {
+    background: #A1A1A1;
+}
+.card-liza:hover .btn {
+    background: #A1A1A1;
+}
+
+.card-timur:hover {
+    background: #8F93C1;
+}
+.card-timur:hover .btn {
+    background: #8F93C1;
+}
+
+/* На широких экранах — все 5 карточек в одну строку */
+@media (min-width: 1300px) {
+    .cards-grid {
+        flex-wrap: nowrap;
+    }
+}
+
+/* Блок случайного факта */
+.random-fact-section {
+    background: rgba(217, 217, 217, 0.9);
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.generate-fact-btn {
+    background: #2c2c3a;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom: 1.5rem;
+}
+
+.generate-fact-btn:hover {
+    background: #4a4a5a;
+    transform: scale(1.02);
+}
+
+.fact-display {
+    font-size: 1rem;
+    background: #EFEEEA;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(0,0,0,0.05);
+    line-height: 1.4;
+    color: #2c2c3a;
+}
+
+/* Навигация */
+.back-link {
+    display: inline-block;
+    margin: 1rem 0;
+    color: #2c2c3a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Персональная страница */
+.info-card {
+    background: rgba(217, 217, 217, 0.9);
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    padding: 1.8rem;
+    margin: 2rem 0;
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+.info-title h1 {
+    font-size: 1.8rem;
+    color: #2c2c3a;
+}
+
+.category-badge {
+    background: rgba(0,0,0,0.1);
+    padding: 0.2rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    color: #4a4a5a;
+    display: inline-block;
+}
+
+.info-content p {
+    margin: 0.5rem 0;
+    color: #3a3a4a;
+}
+
+/* Список рекомендаций */
+.facts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.fact-item {
+    background: rgba(217, 217, 217, 0.9);
+    backdrop-filter: blur(4px);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.fact-item:hover {
+    background: #c9c9c9;
+    transform: translateX(5px);
+}
+
+.fact-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+.fact-text h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    color: #2c2c3a;
+}
+
+.fact-text p {
+    font-size: 0.85rem;
+    color: #5a5a6e;
+}
+
+/* Страница "О проекте" */
+.about-section {
+    background: rgba(217, 217, 217, 0.9);
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.about-section h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #2c2c3a;
+}
+
+.about-section h2 {
+    font-size: 1.3rem;
+    margin: 1.5rem 0 0.8rem;
+    color: #2c2c3a;
+}
+
+.about-section p {
+    color: #3a3a4a;
+    line-height: 1.6;
+}
+
+.tech-list, .role-list {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.tech-list li, .role-list li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.tech-list li::before, .role-list li::before {
+    content: "✦";
+    color: #2c2c3a;
+    position: absolute;
+    left: 0;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    color: #5a5a6e;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(2px);
+}
+
+footer a {
+    color: #2c2c3a;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 700px) {
+    .fact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .info-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cards-grid {
+        gap: 1rem;
+    }
+    .card {
+        width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+}
+/* ===== ТУМБЛЕР (переключатель темы) ===== */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2c2c3a;
+    transition: 0.3s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "☀️";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}
+
+input:checked + .slider {
+    background-color: #5A8EF7;
+}
+
+input:checked + .slider:before {
+    content: "🌙";
+    transform: translateX(26px);
+}
+
+/* Тёмная тема — меняем только фон, карточки и текст */
+body.dark-theme {
+    background: #0A0E17;
+    color: #E8EDF2;
+}
+
+body.dark-theme .card {
+    background: rgba(20, 30, 45, 0.9);
+    border: 1px solid rgba(90, 142, 247, 0.2);
+}
+
+body.dark-theme .card h3,
+body.dark-theme .info-title h1,
+body.dark-theme .about-section h1,
+body.dark-theme .about-section h2 {
+    color: #E8EDF2;
+}
+
+body.dark-theme .category,
+body.dark-theme .category-badge {
+    background: rgba(90, 142, 247, 0.2);
+    color: #A8C7FA;
+}
+
+body.dark-theme .short-bio,
+body.dark-theme .fact-text p,
+body.dark-theme .info-content p,
+body.dark-theme .about-section p {
+    color: #B0BDCC;
+}
+
+body.dark-theme .btn {
+    background: #1E3A5F;
+    color: #A8C7FA;
+    border: 1px solid rgba(90, 142, 247, 0.3);
+}
+
+body.dark-theme .random-fact-section,
+body.dark-theme .info-card,
+body.dark-theme .fact-item,
+body.dark-theme .about-section {
+    background: rgba(20, 30, 45, 0.9);
+}
+
+body.dark-theme .fact-display {
+    background: #0A0E17;
+    color: #E8EDF2;
+    border: 1px solid rgba(90, 142, 247, 0.2);
+}
+
+body.dark-theme .back-link {
+    color: #A8C7FA;
+}
+
+body.dark-theme footer {
+    background: rgba(10, 14, 23, 0.9);
+    border-top: 1px solid rgba(90, 142, 247, 0.2);
+}
+
+body.dark-theme footer a {
+    color: #A8C7FA;
+}
+
+body.dark-theme .about-link {
+    background: linear-gradient(135deg, #1E3A5F, #0F2B42);
+    color: #A8C7FA;
+    border: 1px solid rgba(90, 142, 247, 0.3);
+}
+
+body.dark-theme .about-link:hover {
+    background: linear-gradient(135deg, #2A4A7A, #1A3A5A);
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .theme-switch {
+        width: 40px;
+        height: 20px;
+    }
+    .slider:before {
+        height: 14px;
+        width: 14px;
+        font-size: 9px;
+    }
+    input:checked + .slider:before {
+        transform: translateX(20px);
+    }
+}
+/* ===== ФОН ОДИНАКОВЫЙ НА ВСЕХ СТРАНИЦАХ ===== */
+body, body.dark-theme {
+    background: #EFEEEA !important;
+}
+
+body.dark-theme {
+    background: #0A0E17 !important;
+}
+
+/* Убираем лишние фоны у внутренних блоков */
+.about-section,
+.info-card,
+.random-fact-section,
+.fact-item,
+.facts-list,
+.page-header,
+footer {
+    background: transparent !important;
+}
+
+/* Возвращаем фон только карточкам и контентным блокам */
+.card,
+.about-section,
+.info-card,
+.random-fact-section,
+.fact-item,
+footer {
+    background: rgba(217, 217, 217, 0.9) !important;
+}
+
+body.dark-theme .card,
+body.dark-theme .about-section,
+body.dark-theme .info-card,
+body.dark-theme .random-fact-section,
+body.dark-theme .fact-item,
+body.dark-theme footer {
+    background: rgba(20, 30, 45, 0.9) !important;
+}
+/* ===== ИСПРАВЛЕНИЕ: МЕНЯЕТСЯ ВСЯ КАРТОЧКА, А НЕ ТОЛЬКО КНОПКА ===== */
+.card-denis:hover,
+.card-nastya:hover,
+.card-nikita:hover,
+.card-liza:hover,
+.card-timur:hover {
+    transition: all 0.3s ease;
+}
+
+/* Светлая тема */
+body:not(.dark-theme) .card-denis:hover {
+    background: #BDC4B1 !important;
+}
+body:not(.dark-theme) .card-nastya:hover {
+    background: #9F7E7E !important;
+}
+body:not(.dark-theme) .card-nikita:hover {
+    background: #849CBD !important;
+}
+body:not(.dark-theme) .card-liza:hover {
+    background: #A1A1A1 !important;
+}
+body:not(.dark-theme) .card-timur:hover {
+    background: #8F93C1 !important;
+}
+
+/* Тёмная тема — тоже меняется вся карточка */
+body.dark-theme .card-denis:hover {
+    background: #BDC4B1 !important;
+    border-color: #BDC4B1 !important;
+}
+body.dark-theme .card-nastya:hover {
+    background: #9F7E7E !important;
+    border-color: #9F7E7E !important;
+}
+body.dark-theme .card-nikita:hover {
+    background: #849CBD !important;
+    border-color: #849CBD !important;
+}
+body.dark-theme .card-liza:hover {
+    background: #A1A1A1 !important;
+    border-color: #A1A1A1 !important;
+}
+body.dark-theme .card-timur:hover {
+    background: #8F93C1 !important;
+    border-color: #8F93C1 !important;
+}
+
+/* Чтобы кнопка тоже менялась синхронно */
+.card-denis:hover .btn,
+.card-nastya:hover .btn,
+.card-nikita:hover .btn,
+.card-liza:hover .btn,
+.card-timur:hover .btn {
+    background: inherit !important;
+}
+
+body:not(.dark-theme) .card-denis:hover .btn,
+body:not(.dark-theme) .card-nastya:hover .btn,
+body:not(.dark-theme) .card-nikita:hover .btn,
+body:not(.dark-theme) .card-liza:hover .btn,
+body:not(.dark-theme) .card-timur:hover .btn {
+    background: #2c2c3a !important;
+    color: white !important;
+}
+
+body.dark-theme .card-denis:hover .btn,
+body.dark-theme .card-nastya:hover .btn,
+body.dark-theme .card-nikita:hover .btn,
+body.dark-theme .card-liza:hover .btn,
+body.dark-theme .card-timur:hover .btn {
+    background: white !important;
+    color: #0A0E17 !important;
+}
+
+/* ===== СТРАНИЦА "О ПРОЕКТЕ" - ЧЕРЕДОВАНИЕ ТЕКСТА И ФОТО (ПРОСТОЕ И РАБОЧЕЕ РЕШЕНИЕ) ===== */
+.about-section .about-block {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    justify-content: space-between;
+}
+
+.about-section .about-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-section .about-text {
+    flex: 1;
+    width: 50%;
+}
+
+.about-section .about-photo {
+    flex: 1;
+    width: 50%;
+}
+
+.about-section .about-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Оформление текста */
+.about-section .about-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #2c2c3a;
+}
+
+.about-section .about-text p {
+    color: #3a3a4a;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.about-section .about-text ul {
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+}
+
+.about-section .about-text li {
+    margin: 0.5rem 0;
+    color: #3a3a4a;
+}
+
+/* Тёмная тема */
+body.dark-theme .about-section .about-text h2 {
+    color: #E8EDF2;
+}
+
+body.dark-theme .about-section .about-text p,
+body.dark-theme .about-section .about-text li {
+    color: #B0BDCC;
+}
+
+/* На телефонах — всё в столбик */
+@media (max-width: 768px) {
+    .about-section .about-block,
+    .about-section .about-block.reverse {
+        flex-direction: column !important;
+    }
+    
+    .about-section .about-text,
+    .about-section .about-photo {
+        width: 100% !important;
+    }
+}
