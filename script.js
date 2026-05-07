@@ -1,10 +1,9 @@
-// Массив фактов о команде
 const facts = [
     "Скоро здесь будет интересный факт №1",
     "Скоро здесь будет интересный факт №2",
     "Скоро здесь будет интересный факт №3",
     "Скоро здесь будет интересный факт №4",
-    "Скоро здесь будет интересный факт №5"
+    "Скоро здесь будет интересный факт №6"
 ];
 
 function displayRandomFact() {
@@ -22,18 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     displayRandomFact();
 });
-// ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ =====
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 
-// Проверяем сохранённую тему
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
     body.classList.add('dark-theme');
     if (themeToggle) themeToggle.checked = true;
 }
-
-// Функция сохранения темы
 function setTheme(isDark) {
     if (isDark) {
         body.classList.add('dark-theme');
@@ -44,7 +39,6 @@ function setTheme(isDark) {
     }
 }
 
-// Слушатель на тумблер
 if (themeToggle) {
     themeToggle.addEventListener('change', (e) => {
         setTheme(e.target.checked);
