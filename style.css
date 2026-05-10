@@ -551,7 +551,7 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Тёмная тема — меняем только фон, карточки и текст */
+/* НОВЫЙ БЛОК: ТЁМНАЯ ТЕМА */
 body.dark-theme {
     background: #0A0E17;
     color: #E8EDF2;
@@ -753,27 +753,29 @@ body.dark-theme .card-timur:hover .btn {
 }
 
 /* ===== СТРАНИЦА "О ПРОЕКТЕ" - ЧЕРЕДОВАНИЕ ТЕКСТА И ФОТО (ПРОСТОЕ И РАБОЧЕЕ РЕШЕНИЕ) ===== */
+/* ===== СТРАНИЦА "О ПРОЕКТЕ" - ЧЕРЕДОВАНИЕ ТЕКСТА И ФОТО (РАБОЧАЯ ВЕРСИЯ) ===== */
 .about-section .about-block {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
     margin-bottom: 3rem;
-    justify-content: space-between;
 }
 
 .about-section .about-block.reverse {
-    flex-direction: row-reverse;
+    direction: rtl;
+}
+
+.about-section .about-block.reverse > * {
+    direction: ltr;
 }
 
 .about-section .about-text {
-    flex: 1;
-    width: 50%;
+    width: 100%;
 }
 
 .about-section .about-photo {
-    flex: 1;
-    width: 50%;
+    width: 100%;
 }
 
 .about-section .about-photo img {
@@ -821,11 +823,193 @@ body.dark-theme .about-section .about-text li {
 @media (max-width: 768px) {
     .about-section .about-block,
     .about-section .about-block.reverse {
-        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        direction: ltr !important;
     }
+}
+
+    /* ТЕСТОВОЕ ПРАВИЛО - САМОЕ СИЛЬНОЕ */
+.about-block.reverse {
+    flex-direction: row-reverse !important;
     
-    .about-section .about-text,
-    .about-section .about-photo {
-        width: 100% !important;
-    }
+}
+/* ===== ИСПРАВЛЕНИЕ: ЦВЕТ ЗАГОЛОВКОВ В ТЁМНОЙ ТЕМЕ ===== */
+body.dark-theme .fact-text h3 {
+    color: #FFFFFF !important;
+}
+
+/* Также исправляем цвет категорий в карточках */
+body.dark-theme .category,
+body.dark-theme .category-badge {
+    background: rgba(90, 142, 247, 0.2);
+    color: #A8C7FA !important;
+}
+
+/* Цвет описаний в блоках рекомендаций */
+body.dark-theme .fact-text p {
+    color: #CCCCCC !important;
+}
+
+/* Цвет названий на персональных страницах */
+body.dark-theme .info-title h1 {
+    color: #FFFFFF !important;
+}
+
+/* Цвет текста в карточках на главной */
+body.dark-theme .card h3 {
+    color: #FFFFFF !important;
+}
+
+body.dark-theme .short-bio {
+    color: #DDDDDD !important;
+}
+/* ===== СОВРЕМЕННЫЕ ГРАДИЕНТЫ ДЛЯ ЗАГОЛОВКОВ ===== */
+
+/* Светлая тема - градиент для главного заголовка */
+.header-center h1 {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/*  НОВЫЙ БЛОК: ГРАДИЕНТЫ ДЛЯ ЗАГОЛОВКОВ */
+body.dark-theme .header-center h1 {
+    background: linear-gradient(135deg, #ffffff, #e0e0e0, #b0b0b0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+/* Градиент для заголовков h2 (Как всё начиналось, Наша команда и т.д.) */
+.about-section .about-text h2 {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    display: inline-block;
+}
+
+body.dark-theme .about-section .about-text h2 {
+    background: linear-gradient(135deg, #ffffff, #a8c7fa, #5a8ef7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+/* Градиент для имён в карточках */
+.card h3 {
+    background: linear-gradient(135deg, #2c3e50, #2c3e50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    font-weight: 700;
+}
+
+body.dark-theme .card h3 {
+    background: linear-gradient(135deg, #ffffff, #e0e0ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+/* Градиент для названий игр/фильмов/книг */
+.fact-text h3 {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    font-weight: 600;
+}
+
+body.dark-theme .fact-text h3 {
+    background: linear-gradient(135deg, #ffffff, #d4d4ff, #a8c7fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+/* Градиент для имени на персональной странице */
+.info-title h1 {
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+body.dark-theme .info-title h1 {
+    background: linear-gradient(135deg, #ffffff, #c8d8ff, #8aaeff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+/* Ховер-эффект для заголовков */
+.header-center h1,
+.about-section .about-text h2,
+.card h3,
+.fact-text h3,
+.info-title h1 {
+    transition: all 0.3s ease;
+}
+
+.header-center h1:hover,
+.about-section .about-text h2:hover,
+.card h3:hover,
+.fact-text h3:hover,
+.info-title h1:hover {
+    letter-spacing: 2px;
+    transform: scale(1.02);
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+/* ===== ИСПРАВЛЕНИЕ: ФОН ДЛЯ СЛУЧАЙНОГО ФАКТА В ТЁМНОЙ ТЕМЕ ===== */
+
+/* Фон блока случайного факта */
+body.dark-theme .random-fact-section {
+    background: rgba(20, 30, 45, 0.9) !important;
+    border: 1px solid rgba(90, 142, 247, 0.2);
+}
+
+/* Текст внутри блока - белый/светлый */
+body.dark-theme .random-fact-section .fact-display {
+    background: #0A0E17 !important;
+    color: #E8EDF2 !important;
+    border: 1px solid rgba(90, 142, 247, 0.2);
+}
+
+/* Или если хочешь градиент для текста факта */
+body.dark-theme .fact-display {
+    background: linear-gradient(90deg, #ffffff, #c8d8ff, #ffffff, #a0c0ff, #ffffff) !important;
+    background-size: 300% auto !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    animation: gradientMove 4s ease infinite;
+}
+
+/* Кнопка "Сгенерировать факт" в тёмной теме */
+body.dark-theme .generate-fact-btn {
+    background: linear-gradient(135deg, #1E3A5F, #2A4A7A, #1E3A5F);
+    background-size: 200% 200%;
+    color: white !important;
+    border: 1px solid rgba(90, 142, 247, 0.3);
+    animation: gradientBg 3s ease infinite;
+}
+
+body.dark-theme .generate-fact-btn:hover {
+    background: linear-gradient(135deg, #2A4A7A, #3A5A8A, #2A4A7A);
+    transform: scale(1.02);
 }
